@@ -1,0 +1,24 @@
+services:
+  phx:
+    build: .
+    depends_on:
+      - db
+    external_links:
+      - db:db_host
+    ports:
+      - "4000:4000"
+    volumes:
+      - .:/app
+
+  db:
+    environment:
+      - POSTGRES_USER=shortnr
+      - POSTGRES_PASSWORD=shortnr
+    image: "postgres:13.4"
+    ports:
+      - "5432:5432"
+    volumes:
+      - shortnr_database:/var/lib/postgresql/data
+
+volumes:
+  shortnr_database:
