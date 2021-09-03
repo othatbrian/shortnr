@@ -2,10 +2,10 @@ import Config
 
 # Configure your database
 config :shortnr, Shortnr.Repo,
-  username: "postgres",
-  password: "postgres",
+  username: "shortnr",
+  password: "shortnr",
   database: "shortnr_dev",
-  hostname: "localhost",
+  hostname: "db_host",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
