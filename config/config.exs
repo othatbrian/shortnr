@@ -8,7 +8,11 @@
 import Config
 
 config :shortnr,
-  ecto_repos: [Shortnr.Repo]
+  ecto_repos: [Shortnr.Repo],
+  generators: [binary_id: true]
+
+config :shortnr, Shortnr.Repo,
+  migration_timestamps: [type: :utc_datetime]
 
 # Configures the endpoint
 config :shortnr, ShortnrWeb.Endpoint,
