@@ -11,10 +11,10 @@ defmodule ShortnrWeb.UrlController do
 
   def create(conn, %{"url" => url_params}) do
     case Urls.create_url(url_params) do
-      {:ok, _} ->
+      {:ok, url} ->
         conn
         |> put_flash(:info, "Url created successfully.")
-        |> redirect(to: Routes.url_path(conn, :new))
+        |> redirect(to: Routes.url_path(conn, :show, url))
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
