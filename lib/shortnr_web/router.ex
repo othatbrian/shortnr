@@ -19,7 +19,7 @@ defmodule ShortnrWeb.Router do
 
     get "/", PageController, :index
 
-    resources "/urls", UrlController, only: [:show, :create]
+    resources "/urls", UrlController, only: [:new, :create]
   end
 
   # Other scopes may use custom stacks.
