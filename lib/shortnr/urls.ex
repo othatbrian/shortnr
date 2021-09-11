@@ -37,7 +37,7 @@ defmodule Shortnr.Urls do
 
   """
   def create_url(attrs \\ %{}) do
-    %Url{}
+    %Url{long_url: attrs["long_url"], short_url: generate_short_url()}
     |> Url.changeset(attrs)
     |> Repo.insert()
   end
@@ -53,5 +53,11 @@ defmodule Shortnr.Urls do
   """
   def change_url(%Url{} = url, attrs \\ %{}) do
     Url.changeset(url, attrs)
+  end
+
+  defp generate_short_url() do
+    for _ <- 1..4, into: "" do
+      <<Enum.random(Enum.to_list(?a..?z) ++ Enum.to_list(?A..?Z))>>
+    end
   end
 end
