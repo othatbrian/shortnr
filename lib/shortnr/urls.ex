@@ -9,19 +9,6 @@ defmodule Shortnr.Urls do
   alias Shortnr.Urls.Url
 
   @doc """
-  Returns the list of urls.
-
-  ## Examples
-
-      iex> list_urls()
-      [%Url{}, ...]
-
-  """
-  def list_urls do
-    Repo.all(Url)
-  end
-
-  @doc """
   Gets a single url.
 
   Raises `Ecto.NoResultsError` if the Url does not exist.
@@ -53,40 +40,6 @@ defmodule Shortnr.Urls do
     %Url{}
     |> Url.changeset(attrs)
     |> Repo.insert()
-  end
-
-  @doc """
-  Updates a url.
-
-  ## Examples
-
-      iex> update_url(url, %{field: new_value})
-      {:ok, %Url{}}
-
-      iex> update_url(url, %{field: bad_value})
-      {:error, %Ecto.Changeset{}}
-
-  """
-  def update_url(%Url{} = url, attrs) do
-    url
-    |> Url.changeset(attrs)
-    |> Repo.update()
-  end
-
-  @doc """
-  Deletes a url.
-
-  ## Examples
-
-      iex> delete_url(url)
-      {:ok, %Url{}}
-
-      iex> delete_url(url)
-      {:error, %Ecto.Changeset{}}
-
-  """
-  def delete_url(%Url{} = url) do
-    Repo.delete(url)
   end
 
   @doc """
