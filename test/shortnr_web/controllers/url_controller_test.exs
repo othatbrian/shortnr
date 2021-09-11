@@ -12,14 +12,9 @@ defmodule ShortnrWeb.UrlControllerTest do
   end
 
   describe "create url" do
-    test "redirects to show when data is valid", %{conn: conn} do
+    test "redirects to new when data is valid", %{conn: conn} do
       conn = post(conn, Routes.url_path(conn, :create), url: @create_attrs)
-
-      assert %{id: id} = redirected_params(conn)
-      assert redirected_to(conn) == Routes.url_path(conn, :show, id)
-
-      conn = get(conn, Routes.url_path(conn, :show, id))
-      assert html_response(conn, 200) =~ "Show Url"
+      assert redirected_to(conn) == Routes.url_path(conn, :new)
     end
 
     test "renders errors when data is invalid", %{conn: conn} do
