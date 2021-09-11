@@ -7,7 +7,7 @@ defmodule ShortnrWeb.UrlControllerTest do
   describe "new url" do
     test "renders form", %{conn: conn} do
       conn = get(conn, Routes.url_path(conn, :new))
-      assert html_response(conn, 200) =~ "New Url"
+      assert html_response(conn, 200) =~ "Enter a long URL"
     end
   end
 
@@ -19,7 +19,7 @@ defmodule ShortnrWeb.UrlControllerTest do
 
     test "renders errors when data is invalid", %{conn: conn} do
       conn = post(conn, Routes.url_path(conn, :create), url: @invalid_attrs)
-      assert html_response(conn, 200) =~ "New Url"
+      assert html_response(conn, 200) =~ "Enter a long URL"
     end
   end
 end
