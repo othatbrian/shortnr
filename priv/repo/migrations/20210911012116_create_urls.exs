@@ -8,5 +8,8 @@ defmodule Shortnr.Repo.Migrations.CreateUrls do
 
       timestamps()
     end
+
+    unique_index(:urls, :short_url)
+    unique_index(:urls, :long_url)
   end
 end
