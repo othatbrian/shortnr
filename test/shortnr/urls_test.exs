@@ -10,9 +10,9 @@ defmodule Shortnr.UrlsTest do
 
     @invalid_attrs %{long_url: nil, short_url: nil}
 
-    test "get_url!/1 returns the url with given id" do
+    test "get_url!/1 returns the URL model with given long URL" do
       url = url_fixture()
-      assert Urls.get_url!(url.id) == url
+      assert Urls.get_url!(url.long_url).long_url == url.long_url
     end
 
     test "create_url/1 with valid data creates a url" do

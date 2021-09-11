@@ -3,13 +3,12 @@ defmodule Shortnr.Repo.Migrations.CreateUrls do
 
   def change do
     create table(:urls, primary_key: false) do
-      add :short_url, :string
-      add :long_url, :string
+      add :short_url, :string, null: false
+      add :long_url, :string, null: false, primary_key: true
 
       timestamps()
     end
 
-    unique_index(:urls, :short_url)
-    unique_index(:urls, :long_url)
+    create unique_index(:urls, :short_url)
   end
 end
