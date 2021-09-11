@@ -2,12 +2,12 @@ defmodule Shortnr.Urls.Url do
   use Ecto.Schema
   import Ecto.Changeset
 
-  @primary_key {:long_url, :string, autogenerate: false}
-  @derive {Phoenix.Param, key: :long_url}
+  @primary_key {:short_url, :string, autogenerate: false}
+  @derive {Phoenix.Param, key: :short_url}
   @timestamps_opts [type: :utc_datetime_usec]
 
   schema "urls" do
-    field :short_url, :string
+    field :long_url, :string
 
     timestamps()
   end
