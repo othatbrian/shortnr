@@ -1,7 +1,7 @@
 defmodule ShortnrWeb.UrlControllerTest do
   use ShortnrWeb.ConnCase
 
-  @create_attrs %{long_url: "some long_url", short_url: "some short_url"}
+  @create_attrs %{long_url: "http://www.example.com", short_url: "abcd"}
   @invalid_attrs %{long_url: nil, short_url: nil}
 
   describe "new url" do
