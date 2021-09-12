@@ -11,8 +11,8 @@ defmodule Shortnr.UrlsFixtures do
     {:ok, url} =
       attrs
       |> Enum.into(%{
-        long_url: "some long_url",
-        short_url: "some short_url"
+        long_url: "http://www.foo.com",
+        short_url: "abcd"
       })
       |> Shortnr.Urls.create_url()
 

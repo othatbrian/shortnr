@@ -16,15 +16,21 @@ defmodule Shortnr.UrlsTest do
     end
 
     test "create_url/1 with valid data creates a url" do
-      valid_attrs = %{long_url: "some long_url", short_url: "some short_url"}
+      valid_attrs = %{long_url: "http://www.foo.com", short_url: "abcd"}
 
       assert {:ok, %Url{} = url} = Urls.create_url(valid_attrs)
-      assert url.long_url == "some long_url"
-      assert url.short_url == "some short_url"
+      assert url.long_url == "http://www.foo.com"
+      assert url.short_url == "abcd"
     end
 
     test "create_url/1 with invalid data returns error changeset" do
       assert {:error, %Ecto.Changeset{}} = Urls.create_url(@invalid_attrs)
+    end
+
+    test "url format is valid" do
+      assert {:error, %Ecto.Changeset{}} = Urls.create_url(%{long_url: "www.foo.com"})
+      assert {:ok, %Url{}} = Urls.create_url(%{long_url: "http://www.foo.com"})
+      assert {:ok, %Url{}} = Urls.create_url(%{long_url: "https://www.foo.com"})
     end
   end
 end
