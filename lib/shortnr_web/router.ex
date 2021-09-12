@@ -17,7 +17,7 @@ defmodule ShortnrWeb.Router do
   scope "/", ShortnrWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    get "/", UrlController, :new
 
     resources "/urls", UrlController, only: [:new, :create, :show]
 
