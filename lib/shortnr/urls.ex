@@ -37,7 +37,7 @@ defmodule Shortnr.Urls do
 
   """
   def create_url(attrs \\ %{}) do
-    %Url{long_url: attrs["long_url"], short_url: generate_short_url()}
+    %Url{short_url: generate_short_url()}
     |> Url.changeset(attrs)
     |> Repo.insert()
   end
